@@ -11,7 +11,7 @@ namespace Application.Abstract
     public interface IBillService
     { 
       Task Add(BillAddViewDto entity);
-      Task Delete(int id);
+      Task Delete(BillViewDto billViewDto);
       Task Update(BillViewDto billViewDto);
       Task<List<BillViewDto>> GetAll();
       Task<List<BillViewDto>> Get(Expression<Func<BillViewDto, bool>> filter);

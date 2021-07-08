@@ -11,7 +11,7 @@ namespace Application.Abstract
     public interface IApartmentService
     {
         Task Add(ApartmentAddViewDto entity);
-        Task Delete(int id);
+        Task Delete(ApartmentViewDto entity);
         Task Update(ApartmentViewDto entity);
         Task<List<ApartmentViewDto>> GetAll();
         Task<List<ApartmentViewDto>> Get(Expression<Func<ApartmentViewDto, bool>> filter);

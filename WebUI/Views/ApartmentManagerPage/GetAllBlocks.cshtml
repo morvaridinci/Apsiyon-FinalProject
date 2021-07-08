@@ -8,16 +8,23 @@
             <th scope="col">Id</th>
             <th scope="col">Block Adı</th>
             <th scope="col">Daire No</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
 
         @foreach (var block in Model)
         {
-            <tr>
-                <td>@block.Id</td>
-                <td>@block.BlockName</td>
-                <td> <a href="GetApartmentByBlockId">Daireleri goster</a></td>
+        <tr>
+            <td>@block.Id</td>
+            <td>@block.BlockName</td>
+            <td>
+                @foreach (var apartment in block.Apartments)
+                {
+
+                @apartment.ApartmentNumber
+                }
+            </td>
             </tr>
         }
     </tbody>

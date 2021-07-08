@@ -28,11 +28,12 @@ namespace Application.Concrete.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(ApartmentViewDto entity)
         {
-            var apartmentToDelete = (await _unitOfWork.Apartment.Get(x => x.Id == id)).FirstOrDefault();
+            var apartmentToDelete = (await _unitOfWork.Apartment.Get(x => x.Id == entity.Id)).FirstOrDefault();
             _unitOfWork.Apartment.Delete(apartmentToDelete);
         }
+
 
         public async Task<List<ApartmentViewDto>> Get(Expression<Func<ApartmentViewDto, bool>> filter)
         {
@@ -71,8 +72,6 @@ namespace Application.Concrete.Services
             updatedApartment.ApartmentNumber = entity.ApartmentNumber;
             _unitOfWork.Apartment.Update(updatedApartment);
             await _unitOfWork.SaveChangesAsync();
-
-
         }
     }
 }

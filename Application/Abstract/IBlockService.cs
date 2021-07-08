@@ -11,7 +11,7 @@ namespace Application.Abstract
     public interface IBlockService 
     {
         Task Add(BlockViewDto entity);
-        Task Delete(int id);
+        Task Delete(BlockViewDto entity);
         Task<List<BlockViewDto>> GetAll();
         Task<List<BlockViewDto>> Get(Expression<Func<BlockViewDto, bool>> filter);
     }

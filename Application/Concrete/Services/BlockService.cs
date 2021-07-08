@@ -32,11 +32,13 @@ namespace Application.Concrete.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(BlockViewDto entity)
         {
-            var entityToDelete = (await _unitOfWork.Block.Get(x => x.Id == id)).FirstOrDefault();
+            var entityToDelete = (await _unitOfWork.Block.Get(x => x.Id == entity.Id)).FirstOrDefault();
             _unitOfWork.Block.Delete(entityToDelete);
         }
+
+       
 
         public async Task<List<BlockViewDto>> Get(Expression<Func<BlockViewDto, bool>> filter)
         {

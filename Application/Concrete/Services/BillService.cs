@@ -30,9 +30,9 @@ namespace Application.Concrete.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(BillViewDto billViewDto)
         {
-            var billToDelete = (await _unitOfWork.Bill.Get(x => x.Id == id)).FirstOrDefault();
+            var billToDelete = (await _unitOfWork.Bill.Get(x => x.Id == billViewDto.Id)).FirstOrDefault();
             _unitOfWork.Bill.Delete(billToDelete);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -54,14 +54,14 @@ namespace Application.Concrete.Services
             return _mapper.Map<List<BillViewDto>>(result);
         }
 
+
         public async Task Update(BillViewDto billViewDto)
         {
             var billToUpdate = (await _unitOfWork.Bill.Get(x => x.Id == billViewDto.Id)).FirstOrDefault();
-            billViewDto.Amount = billToUpdate.Amount;
-            billViewDto.BillDate = billToUpdate.BillDate;
-            billViewDto.BillStatus = billToUpdate.BillStatus;
-
-            _unitOfWork.Bill.Update(_mapper.Map<Bill>(billViewDto));
+            billToUpdate.Amount = billViewDto.Amount;
+            billToUpdate.BillDate = billViewDto.BillDate;
+            billToUpdate.BillStatus = billViewDto.BillStatus;
+            _unitOfWork.Bill.Update(billToUpdate);
             await _unitOfWork.SaveChangesAsync();
         }
     }

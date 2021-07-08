@@ -17,22 +17,23 @@
             <th scope="col">Daire Numarası</th>
             <th scope="col"></th>
             <th scope="col"></th>
-            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
 
         @foreach (var bill in Model)
         {
-            <tr>
-                <td>@bill.Id</td>
-                <td>@bill.Apartment.Owner.Name @bill.Apartment.Owner.Surname</td>
-                <td>@bill.BillDate</td>
-                <td>@bill.BillStatus</td>
-                <td>@bill.Amount</td>
-                <td>@bill.Apartment.Block.BlockName</td>
-                <td>@bill.Apartment.ApartmentNumber</td>
-            </tr>
+        <tr>
+            <td>@bill.Id</td>
+            <td>@bill.Apartment.Owner.Name @bill.Apartment.Owner.Surname</td>
+            <td>@bill.BillDate</td>
+            <td>@bill.BillStatus</td>
+            <td>@bill.Amount</td>
+            <td>@bill.Apartment.Block.BlockName</td>
+            <td>@bill.Apartment.ApartmentNumber</td>
+            <td><input type="button" value="Fatura Guncelle" href="UpdateBill" /></td>
+            <td><input type="button" value="Faturayi  Sil" href="UpdateBill" /></td>
+        </tr>
         }
     </tbody>
 </table>

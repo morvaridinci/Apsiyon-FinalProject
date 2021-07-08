@@ -151,12 +151,12 @@ namespace WebUI.ApartmentManagerPage.Controllers
             return View(model);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> DeleteApartment(ApartmentViewDto model)
-        //{
-        //    await _apartmentService.Delete(model);
-        //    return View();
-        //}
+        [HttpGet]
+        public async Task<IActionResult> DeleteApartment(ApartmentViewDto model)
+        {
+            await _apartmentService.Delete(model);
+            return View();
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAllApartments()
@@ -177,27 +177,14 @@ namespace WebUI.ApartmentManagerPage.Controllers
             await _blockService.Add(blockViewDto);
             return View(blockViewDto);
         }
-        //[HttpGet]
-        //public async Task<IActionResult> DeleteBlock(BlockViewDto blockViewDto)
-        //{
-        //    await _blockService.Delete(blockViewDto);
-        //    return View();
-        //}
-
-
-
         [HttpGet]
-        public IActionResult UpdateBlock()
+        public async Task<IActionResult> DeleteBlock(BlockViewDto blockViewDto)
         {
+            await _blockService.Delete(blockViewDto);
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> UpdateBlock(BlockViewDto model)
-        //{
-        //    await _billService.Update(model);
-        //    return View(model);
-        //}
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllBlocks()
@@ -214,6 +201,25 @@ namespace WebUI.ApartmentManagerPage.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult UpdateBill()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateBill(BillViewDto billViewDto)
+        {
+             await _billService.Update(billViewDto);
+            return View(billViewDto);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteBill(BillViewDto billViewDto)
+        {
+            await _billService.Delete(billViewDto);
+            return View();
+        }
     }
 
 }
