@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Apartment Manager Page";
+    Layout = "~/Views/Shared/_ApartmentManagerLayout.cshtml";
+}
+@model ApartmentAddViewDto
+
+
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <div>
+                @*<input type="text" value="" name="BlockName" placeholder="Block Adı" /> <br />
+        <input type="text" value="" name="BlockNumber" placeholder="Block Numarası" /> <br />*@
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Block</label>
+                        @Html.DropDownListFor(x => x.BlockId, new SelectList(ViewBag.Block, "Id", "BlockName"), new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>User</label>
+                        @Html.DropDownListFor(x => x.OwnerId, new SelectList(ViewBag.User, "Id", "Name"), new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <input type="text" value="" name="ApartmentNumber" placeholder="Daire Numarası" /> <br />
+                <input type="text" value="" name="Floor" placeholder="Kat Bilgisi" /> <br />
+                <input type="text" value="" name="Type" placeholder="Type" /> <br />
+                <input type="text" value="" name="Status" placeholder="Status" /> <br />
+                @*<input type="text" value="" name="User" placeholder="User" /> <br />*@
+
+
+            </div>
+        </div>
+        <input type="submit" value="Daire Ekle" />
+    }

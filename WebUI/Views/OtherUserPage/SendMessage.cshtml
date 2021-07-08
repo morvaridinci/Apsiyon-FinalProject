@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "User Page";
+    Layout = "~/Views/Shared/_OtherUserLayout.cshtml";
+}
+@model MessageViewDto
+
+<form method="post" action="SendMessage">
+    UserName
+    @Html.TextAreaFor(x => x.User.UserName)<br />
+    Konu Basligi
+    @Html.TextAreaFor(x => x.Title)<br />
+    Mesaj
+    @Html.TextAreaFor(x => x.Text)<br />
+    <input type ="submit" value="Gonder"/>
+</form>

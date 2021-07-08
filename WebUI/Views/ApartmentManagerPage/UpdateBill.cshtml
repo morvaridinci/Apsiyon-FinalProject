@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Apartment Manager Page";
+    Layout = "~/Views/Shared/_ApartmentManagerLayout.cshtml";
+}
+@model BillViewDto
+
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div>
+            <input type="text" value="" name="Name" placeholder="Kullanici Adi" /> <br />
+            <input type="text" value="" name="BlockNumber" placeholder="Block Numarası" /> <br />
+            <input type="text" value="" name="ApartmentNumber" placeholder="Daire Numarası" /> <br />
+            <input type="text" value="" name="Floor" placeholder="Kat Bilgisi" /> <br />
+            <input type="text" value="" name="Amount" placeholder="Tutar" /> <br />
+            <input type="text" value="" name="DebtType" placeholder="Fatura Turu" /> <br />
+
+        </div>
+    </div>
+    <input type="submit" value="Fatura Guncelle" />
+}

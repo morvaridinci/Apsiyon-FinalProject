@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Butun Borclar";
+    Layout = "~/Views/Shared/_ApartmentManagerLayout.cshtml";
+}
+
+@model List<BillGetAllViewDto>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Ad Soyad</th>
+            <th scope="col">Olusturulma Tarihi</th>
+            <th scope="col">Odendi Mi?</th>
+            <th scope="col">Odeme Tutari</th>
+            <th scope="col">Block</th>
+            <th scope="col">Daire Numarası</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var bill in Model)
+        {
+            <tr>
+                <td>@bill.Id</td>
+                <td>@bill.Apartment.Owner.Name @bill.Apartment.Owner.Surname</td>
+                <td>@bill.BillDate</td>
+                <td>@bill.BillStatus</td>
+                <td>@bill.Amount</td>
+                <td>@bill.Apartment.Block.BlockName</td>
+                <td>@bill.Apartment.ApartmentNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>

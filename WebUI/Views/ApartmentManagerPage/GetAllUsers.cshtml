@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Apartment Manager Page";
+    Layout = "~/Views/Shared/_ApartmentManagerLayout.cshtml";
+}
+
+@model List<UserViewDto>
+<from action="/GetAllUsers">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ad Soyad</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Plaka</th>
+                <th scope="col">Adres</th>
+                <th scope="col">Daire Numarası</th>
+                <th scope="col">Block</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var user in Model)
+            {
+            <tr>
+
+                <td>@user.Name @user.Surname</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.NumberPlate</td>
+                <td>@user.Address @user.Province</td>
+
+                @if (user != null && user.Apartment.Block.BlockName !=null)
+                {
+                    <span>
+                        @user.Apartment.Floor
+                    </span>
+                }
+
+
+                @*<td>@user.Apartment.Block.BlockName</td>*@
+                <td><a href="AddBill">Fatura Ekle</a></td>
+                <td><a href="DeleteUser">Kullaniciyi Sil</a></td>
+                <td><a href="UpdateUser">Kullaniciyi Duzenle</a></td>
+                @*<td><input type="button" value="Kullaniciyi Duzenle" href="/DeleteUser" /></td>
+        <td><input type="button" value="Kullaniciyi Sil" href="UpdateUser" /></td>*@
+            </tr>
+            }
+        </tbody>
+    </table>
+</from>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Butun Borclar";
+    Layout = "~/Views/Shared/_ApartmentManagerLayout.cshtml";
+}
+
+@model List<BlockViewDto>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Blok Adi</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var block in Model)
+        {
+            <tr>
+                <td>@block.Id</td>
+                <td>@block.BlockName</td>
+            </tr>
+        }
+    </tbody>
+</table>

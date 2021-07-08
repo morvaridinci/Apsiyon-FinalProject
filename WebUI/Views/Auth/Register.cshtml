@@ -1,0 +1,30 @@
+﻿@model RegisterViewDto
+
+<form method="post">
+    <div class="container">
+        <div>
+            <input type="text" value="" name="Name" placeholder="Ad" /> <br />
+
+            <input type="text" value="" name="Surname" placeholder="Soyad" /> <br />
+
+            <input type="password" name="Password" placeholder="Şifre" /> <br /> <br />
+
+            <input type="email" name="Email" placeholder="Email" /> <br />
+
+            <input type="text" name="TC" placeholder="TC" /> <br /><br />
+
+            <input type="text" name="Address" placeholder="Adres" /> <br />
+
+            <input type="text" name="Province" placeholder="Sehir" /><br />
+
+            <input type="text" name="PhoneNumber" placeholder="Telefon" /> <br />
+
+            <h6>Arabasi Var mi?</h6>@Html.RadioButtonFor(model => model.CarExist, "Yönetici")
+
+            <input type="text" name="NumberPlate" placeholder="NumberPlate" />
+        </div>
+
+    </div>
+    <input type="submit" value="Kullanici Ekle" />
+</form>
+

@@ -1,0 +1,27 @@
+﻿@model WebUI.Models.Login.LoginViewModel
+@using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                Yönetici
+                @Html.RadioButtonFor(model => model.UserType, "Yönetici")
+                Kullanici
+                @Html.RadioButtonFor(model => model.UserType, "Kullanici")
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <input type="text" value="" name="UserName" placeholder="Kullanıcı Adınızı  Giriniz" />
+        </div>
+        <br />
+        <div class="row">
+            <input type="password" name="Password" placeholder="Şifre giriniz..." />
+        </div>
+        <br />
+        <div class="row">
+            <input type="submit" value="Giriş" />
+        </div>
+    </div>
+
+}

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Apartment Manager Page";
+    Layout = "~/Views/Shared/_ApartmentManagerLayout.cshtml";
+}
+@model ApartmentViewDto
+
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div>
+            <input type="text" value="" name="BlockName" placeholder="Block Adı" /> <br />
+            <input type="text" value="" name="BlockNumber" placeholder="Block Numarası" /> <br />
+            <input type="text" value="" name="ApartmentNumber" placeholder="Daire Numarası" /> <br />
+            <input type="text" value="" name="Floor" placeholder="Kat Bilgisi" /> <br />
+            <input type="text" value="" name="Type" placeholder="Type" /> <br />
+            <input type="text" value="" name="Status" placeholder="Status" /> <br />
+
+        </div>
+    </div>
+    <input type="submit" value="Güncelle Ekle" />
+}

@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Butun Da";
+    Layout = "~/Views/Shared/_ApartmentManagerLayout.cshtml";
+}
+
+@model List<ApartmentViewDto>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Blok Adı</th>
+            <th scope="col">Daire No</th>
+            <th scope="col">Daire Sahibi/Kiracı</th>
+            <th scope="col">Daire Durumu</th>
+            <th scope="col">Oda Sayisi</th>
+            <th scope="col">Kat Bilgisi</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var apartment in Model)
+        {
+            <tr>
+                <td>@apartment.Owner.Apartment.Block.BlockName</td>
+                <td>@apartment.ApartmentNumber </td>
+                <td>@apartment.Owner.Name</td>
+                <td>@apartment.Status</td>
+                <td>@apartment.Type</td>
+                <td>@apartment.Floor</td>
+
+                <td><input type="button" value="Daire Bilgilerini Guncelle" href="UpdateApartment" /></td>
+                <td><input type="button" value="Daire Bilgilerini Sil" href="DeleteApartment" /></td>
+            </tr>
+        }
+    </tbody>
+</table>

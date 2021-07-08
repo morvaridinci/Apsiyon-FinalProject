@@ -1,0 +1,20 @@
+﻿@model List<ApartmentViewDto>
+<table class="table">
+<thead>
+    <tr>
+        
+        <th scope="col">Daire Numarasi</th>
+        <th scope="col">Ev sahibi/Kiraci</th>
+    </tr>
+</thead>
+<tbody>
+
+    @foreach (var apartment in Model)
+    {
+        <tr>
+            <td>@apartment.ApartmentNumber</td>
+            @*<td>@apartment.Owner.Name</td>*@
+        </tr>
+    }
+</tbody>
+</table>

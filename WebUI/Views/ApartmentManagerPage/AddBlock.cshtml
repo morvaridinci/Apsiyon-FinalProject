@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Apartment Manager Page";
+    Layout = "~/Views/Shared/_ApartmentManagerLayout.cshtml";
+}
+@model BlockViewDto
+
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div>
+            <input type="text" value="" name="BlockName" placeholder="Block Adı" /> <br />
+            <input type="submit" value="Blok Ekle" />
+        </div>
+    </div>
+}

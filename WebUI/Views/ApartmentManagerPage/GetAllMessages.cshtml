@@ -1,0 +1,23 @@
+﻿@model List<MessageViewDto>
+<table class="table">
+<thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Gonderen</th>
+        <th scope="col">Baslik</th>
+        <th scope="col">Mesaj</th>
+    </tr>
+</thead>
+<tbody>
+
+    @foreach (var message in Model)
+    {
+        <tr>
+            <td>@message.Id</td>
+            <td>@message.User.UserName</td>
+            <td>@message.Title</td>
+            <td>@message.Text</td>
+        </tr>
+    }
+</tbody>
+</table>
